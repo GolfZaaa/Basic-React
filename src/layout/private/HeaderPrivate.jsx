@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import FormEm from "../../provate-pages/employee/FormEm";
 import ShowEmp from "../../provate-pages/employee/ShowEmp";
 import FormProject from "../../provate-pages/projects/FormProject";
 
@@ -504,7 +505,8 @@ const HeaderPrivate = () => {
                 </li>
               </ul>
             </nav>
-            <ShowEmp />
+            {/* <ShowEmp />  */}
+            <FormEm/>
           </div>
         </div>
       </div>

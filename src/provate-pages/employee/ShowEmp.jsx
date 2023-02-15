@@ -1,11 +1,28 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import { Formik, Form, ErrorMessage, Field } from "formik";
 import { ValidateContact } from "../../validate-form/ValidateContact";
+import Select from "react-select";
+import { NavLink } from "react-router-dom";
+
+const options = [
+  { value: "chocolate", label: "chocolate" },
+  { value: "strawberry", label: "strawberry" },
+  { value: "vanilla", label: "vanilla" },
+];
 
 const ShowEmp = () => {
+  const [selectedOption, setSelectedOption] = useState(null);
   return (
     <div>
       <Fragment>
+        <div className="form-group col-md-12 text-right">
+          <NavLink to='/FormEm' >
+            <button type="button" className="btn btn-outline-primary">
+              เพิ่มใหม่
+            </button>
+          </NavLink>
+        </div>
+
         <div className="card">
           <div className="card-header">คำค้นหาข้อมูล</div>
           <div className="card-body">
@@ -110,39 +127,18 @@ const ShowEmp = () => {
                     </div>
                     <div className="form-group col-md-4 mt-3 mt-md-0">
                       <label htmlFor="name">Your Password</label>
-                      <input
-                        type="password"
-                        name="password"
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                        value={values.password}
-                        className={
-                          "form-control" +
-                          (errors.password && touched.password
-                            ? " is-invalid"
-                            : "")
-                        }
-                        placeholder="Your Password"
-                      />
-                      <ErrorMessage
-                        name="password"
-                        component="div"
-                        className="invalid-feedback"
+                      <Select
+                        defaultValue={selectedOption}
+                        onChange={setSelectedOption}
+                        options={options}
                       />
                     </div>
                     <div className="form-group col-md-4 mt-3 mt-md-0">
                       <label htmlFor="name">Name</label>
-                      <input
-                        type="text"
-                        name="name"
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                        value={values.name}
-                        className={
-                          "form-control" +
-                          (errors.name && touched.name ? " is-invalid" : "")
-                        }
-                        placeholder="Your Name"
+                      <Select
+                        defaultValue={selectedOption}
+                        onChange={setSelectedOption}
+                        options={options}
                       />
                       <ErrorMessage
                         name="name"
