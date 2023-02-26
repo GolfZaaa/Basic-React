@@ -3,8 +3,8 @@ import "./App.css";
 import Main from "./layout/Main";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { PublicRoute } from "./route/Route";
-import MainLayoutRoute from "./layout/private/MainLayoutRoute";
 import { PrivateRoute } from "./route/PrivateRoute";
+import Mainprivate from "../src/layout/private/Main"
 
 function App() {
   var pri = 0;
@@ -22,13 +22,13 @@ function App() {
           </Main>
         ) : (
 
-          <MainLayoutRoute>
+          <Mainprivate>
             <Routes>
               {PrivateRoute.map((item) => (
                 <Route key={item.id} path={item.path} element={item.element} />
               ))}
             </Routes>
-          </MainLayoutRoute>
+          </Mainprivate>
 
         )}
       </BrowserRouter>
