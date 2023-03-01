@@ -3,8 +3,8 @@ import FormProject from "../provate-pages/employee/FormEmp";
 import ShowProject from "../provate-pages/projects/ShowProject";
 import MainPrivate from "../layout/private/Main";
 import FormEm from "../provate-pages/employee/FormEm"
-
-
+import ShowEmp from "../provate-pages/employee/ShowEmp"
+import ShowCertificate from "../provate-pages/certificate/ShowCertificate"
 
 
 export const PrivateRoute = [
@@ -15,12 +15,12 @@ export const PrivateRoute = [
   },
   {
     id: "1",
-    path: "/FormProject",
+    path: "/project/create",
     element: <FormProject />,
   },
   {
     id: "2",
-    path: "/",
+    path: "/S",
     element: <ShowProject />,
   },
   {
@@ -28,5 +28,15 @@ export const PrivateRoute = [
     path: "/FormEm",
     element: <FormEm />,
   },
-
+  {
+    id: "4",
+    path: "/show-employee",
+    element: <ShowEmp />,
+  },
+  {
+    id: "5",
+    // path: "/certificate/show-certificate",
+    path:'/',
+    element: <ShowCertificate />,
+  },
 ];

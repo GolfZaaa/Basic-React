@@ -2,7 +2,21 @@ import React, { Fragment } from "react";
 import Pagination from "react-js-pagination";
 import { NavLink } from "react-router-dom";
 
-function ShowData({ data, pagin, changePage, changePageSize,deleteData }) {
+const styles = StyleSheet.create({
+    page: {
+      flexDirection: 'row',
+      backgroundColor: '#E4E4E4'
+    },
+    section: {
+      margin: 10,
+      padding: 10,
+      flexGrow: 1
+    }
+  });
+
+
+
+function ShowData({ data, pagin, changePage, changePageSize, deleteData }) {
   console.log("data:", data);
   return (
     <Fragment>
@@ -23,9 +37,7 @@ function ShowData({ data, pagin, changePage, changePageSize,deleteData }) {
             </select>
           </div>
           <div>
-            <NavLink
-             to="/project/create" className="btn btn-info btn-md"
-            >
+            <NavLink to="/project/create" className="btn btn-info btn-md">
               <i className="fa fa-plus-circle pr-1"></i>
               เพิ่ม
             </NavLink>
@@ -57,11 +69,8 @@ function ShowData({ data, pagin, changePage, changePageSize,deleteData }) {
                 <td>{item.projectName}</td>
                 <td></td>
                 <td>
-                <a href="#" class="btn btn-warning btn-circle btn-sm">
-                    <i class="fas fa-pen"></i>
-                  </a>
-                  <button href="#" class="btn btn-danger btn-circle btn-sm" onClick={() => deleteData(item.id)}>
-                    <i class="fas fa-trash"></i>
+                  <button href="#" class="btn btn-warning btn-circle btn-sm" >
+                    <i class="bi bi-printer" ></i>
                   </button>
                 </td>
               </tr>
@@ -80,7 +89,6 @@ function ShowData({ data, pagin, changePage, changePageSize,deleteData }) {
               onChange={(page) => {
                 changePage(page);
               }}
-              
             />
           </div>
         </div>

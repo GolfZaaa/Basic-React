@@ -10,7 +10,7 @@ import { ConfirmDialog } from "../../components/AlertDialog";
 
 import { getProject } from "../../services/Project.servies";
 
-const ShowProject = () => {
+const ShowCertificate = () => {
   const projectStatus = systemSetting.projectStatus;
 
   const [selectedOption, setSelectedOption] = useState(null);
@@ -102,22 +102,17 @@ const ShowProject = () => {
                       <div className="form-group col-md-2">
                         <label htmlFor="years">ปี พ.ศ.</label>
                         <DatePickerTH
+                        title="วันที่อบรม"
                           editable={false}
-                          maxDate={new Date()}
-                          onlyYearPicker
-                          format="YYYY"
-                          id="startYear"
-                          value={
-                            values.startYear
-                              ? new Date((values.startYear - 543).toString())
-                              : ""
-                          }
-                          name="startYear"
-                          onChange={(date) => {
-                            setFieldValue("startYear", date.format());
-                          }}
                           errors={errors}
                           touched={touched}
+                          format="DD/MM/YYYY"
+                          maxDate={new Date()}
+                          value={values.trainingDate}
+                          name="trainingDate"
+                          onChange={(date) => {
+                            setFieldValue("trainingDate", date.format());
+                          }}
                         />
                       </div>
                       <div
@@ -163,4 +158,4 @@ const ShowProject = () => {
     </Fragment>
   );
 };
-export default ShowProject; 
+export default ShowCertificate; 
